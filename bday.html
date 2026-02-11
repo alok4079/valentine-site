@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Mr. Letru 💖</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&family=Allura&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #2b1055, #7597de);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      overflow: hidden;
+    }
+
+    #content {
+      text-align: center;
+      color: white;
+      z-index: 2;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    button {
+      padding: 12px 32px;
+      font-size: 17px;
+      border-radius: 40px;
+      border: none;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    #yes {
+      background: white;
+      color: #7b2cbf;
+      animation: pulse 1.5s infinite;
+    }
+
+    #no {
+      background: #ff4f8b;
+      color: white;
+      position: absolute;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .card {
+      background: rgba(255,255,255,0.95);
+      padding: 40px;
+      border-radius: 30px;
+      width: 90%;
+      max-width: 450px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+      animation: pop 0.6s ease;
+      color: #2b124c;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.6); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .love {
+      font-family: 'Allura', cursive;
+      font-size: 28px;
+      margin-top: 20px;
+      color: #9d4edd;
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 22px;
+      animation: floatUp 6s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 0; }
+      to { transform: translateY(-110vh); opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🎵 BACKGROUND MUSIC -->
+  <audio id="bgMusic" preload="auto">
+    <source src="Raabta Agent Vinod 320 kbps.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- MAIN CONTENT -->
+  <div id="content">
+    <h1>Hey Mr. Soumyadeep 🤍</h1>
+    <h2>Will you be my Valentine?</h2>
+
+    <button id="yes" onclick="yesClicked()">Yes 💖</button>
+    <button id="no" onmouseover="moveNo()">No 🙃</button>
+  </div>
+
+  <script>
+    function moveNo() {
+      const no = document.getElementById("no");
+      no.style.left = Math.random() * (window.innerWidth - 100) + "px";
+      no.style.top = Math.random() * (window.innerHeight - 50) + "px";
+    }
+
+    function playMusic() {
+      const music = document.getElementById("bgMusic");
+      music.currentTime = 47;
+      music.volume = 0.6;
+      music.play();
+    }
+
+    function yesClicked() {
+      playMusic();
+
+      document.getElementById("content").innerHTML = `
+        <div class="card">
+          <h1 class="line1">YAY!! 💕</h1>
+          <h2 class="line2">Do you know you’re my letru? 🥺💘</h2>
+          <h2 class="line2">But but buttt… waittt 😌</h2>
+          <h2 class="line3">Okayyy so this one isn’t a surprise anymore…</h2>
+          <h2 class="line3">but I still have something special for you 🤍✨</h2>
+          <h2 class="line4">First things first—ice cream in the morning, okay? 🍦👀</h2>
+          <h2 class="line4">After that… I’ll show youuuu 🫶💕❤️</h2>
+          <div class="love-text">Alabewww a lottt... 🙃💖</div>
+        </div>
+      `;
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = ["💖","💕","💗","💞","✨"][Math.floor(Math.random()*5)];
+      heart.style.left = Math.random() * 100 + "vw";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+
+    setInterval(createHeart, 400);
+  </script>
+
+</body>
+</html>
